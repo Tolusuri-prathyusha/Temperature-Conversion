@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>MY FIRST WEBPAGE</title>
+<style>
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: rgba(127, 255, 212, 0.603);
+}
+h1{
+    color: rgb(25, 30, 118);
+}
+form{
+    background-color: aliceblue;
+    text-align: center;
+    width: 350px;
+    border-radius: 10px;
+    margin: auto;
+    padding: 10px;
+box-shadow: 5px 5px 15px beige;
+}
+#textbox{
+    width: 100px;
+    text-align: center;
+    font-size: 2em;
+    border:2px solid rgb(18, 16, 16);
+    border-radius:3px;
+    margin-bottom: 15px
+}
+label{
+    font-weight: bold
+}button{
+    margin-top: 10px;
+    background-color: aqua;
+    padding:5px;
+    border-radius: 10px;
+    cursor: pointer;
+    }
+
+button:hover{
+    background-color: blue;
+}
+#result{
+    font-weight: bold;
+}
+
+</style>
+    </head>
+    <body>
+        <form>
+        <h1>Temperature conversion</h1>
+        <input type="number" id="textbox" value="0"><br>
+        <input type="radio" id="toFarenheit" name="unit">
+        <label for="toFarenheit">celsius --> toFarenheit</label><br>
+        <input type="radio" id="toCelsius" name="unit">
+        <label for="toCelsius">farenheit --> toCelsius</label><br>
+        <button type="button" onclick="convert()">submit</button>
+        <p id="result"></p>
+    </form>
+        <script>
+const textbox=document.getElementById("textbox");
+const toFarenheit=document.getElementById("toFarenheit");
+const toCelsius=document.getElementById("toCelsius");
+const result=document.getElementById("result");
+let temp;
+function convert(){
+    if(toFarenheit.checked){
+        temp=Number(textbox.value);
+        temp=temp*9/5+32;
+        result.textContent=temp.toFixed(1)+"F";
+        
+
+    }
+    else if(toCelsius.checked){
+        temp=Number(textbox.value);
+        temp=(temp-32)*(5/9);
+        result.textContent=temp.toFixed(1)+"C";
+    
+    }
+    else{
+    result.textContent="select a unit";
+    }
+}
+        </script>
+    </body></html>
